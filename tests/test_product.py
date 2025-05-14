@@ -1,3 +1,5 @@
+from functools import reduce
+
 from src.product import Product
 
 
@@ -47,3 +49,11 @@ def test_new_product(list_dict_products):
     assert prod.name == "Apricot"
     assert prod.price == 550.5
     assert prod.quantity == 120
+
+
+def test_product_str(product_cucumber):
+    assert str(product_cucumber) == "Cucumber, 160.5 руб. Остаток: 20 шт."
+
+
+def test_product_add(list_object_products):
+    assert list_object_products[0] + list_object_products[1] == 6210.0
