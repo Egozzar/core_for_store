@@ -1,5 +1,5 @@
 import pytest
-
+from src.category import Category
 
 def test_catiterator_init(category_iterator):
     assert category_iterator.category.description == "Rich in vitamins and always fresh"
@@ -18,3 +18,8 @@ def test_catiterator_next(category_iterator):
 
     with pytest.raises(StopIteration):
         next(category_iterator)
+
+
+def test_zeroing():
+    Category.category_count = 0
+    Category.product_count = 0

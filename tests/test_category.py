@@ -3,6 +3,8 @@ from src.product import Product
 
 
 def test_category(category_vegetables, category_fruits):
+
+
     assert category_vegetables.name == "Vegetables"
     assert category_vegetables.description == "Rich in vitamins and always fresh"
     assert len(category_vegetables.products) == 3
@@ -25,4 +27,12 @@ def test_products_get_property(category_fruits):
 
 def test_products_get_property_empty(category_fruits_empty):
     assert category_fruits_empty.products == []
+    Product.products.clear()
+
+
+def test_category_str(category_fruits):
+    assert str(category_fruits) == "Fruits, количество продуктов: 7 шт."
+
+
+def test_zeroing():
     Product.products.clear()

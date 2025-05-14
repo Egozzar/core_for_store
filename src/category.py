@@ -24,6 +24,12 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(self.__products) if self.__products else 0
 
+    def __str__(self) -> str:
+        """
+        Метод для отображения информации об объекте класса для пользователей
+        """
+        return f"{self.name}, количество продуктов: {Category.product_count} шт."
+
     def add_product(self, product: Product) -> Any:
         """
         Метод добавляет товар класса Product в приватный атрибут - список продуктов
@@ -38,6 +44,6 @@ class Category:
         в виде списка отформатированных строк
         """
         if self.__products:
-            return [f"{elem.name}, {elem.price} руб. Остаток: {elem.quantity} шт." for elem in self.__products]
+            return [str(elem) for elem in self.__products]
 
         return []
