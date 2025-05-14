@@ -9,9 +9,12 @@
 * src
   + [product.py](src/product.py) - модуль с классом Product для создания экземпляров товара<br/>
   + [category.py](src/category.py) - модуль с классом Category для создания экземпляров категорий товара<br/>
+  + [cat_iterator.py](src/cat_iterator.py) - модуль с классом-итератором CatIterator, позволяющим перебирать<br/>
+список продуктов в экземпляре класса Category 
 * tests
   + test_product.py - модуль с тестами для модуля product.py
   + test_category.py - модуль с тестами для модуля category.py
+  + test_cat_iterator.py - модуль с тестами для модуля cat_iterator.py
 
 ## Установка
 ```commandline

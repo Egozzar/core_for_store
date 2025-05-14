@@ -1,4 +1,4 @@
-from typing import Iterator
+from typing import Any, Iterator
 
 from src.category import Category
 from src.product import Product
@@ -25,7 +25,7 @@ class CatIterator:
 
         return self
 
-    def __next__(self) -> Product:
+    def __next__(self) -> Product | Any:
         """
         Метод возвращает продукт перебираемой категории
         :return: (Product)

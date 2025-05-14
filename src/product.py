@@ -26,7 +26,7 @@ class Product:
         """
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
-    def __add__(self, other) -> float:
+    def __add__(self, other: Any) -> Any:
         """
         Метод позволяет прибавлять к экземпляру класса объект произвольного типа данных
         """

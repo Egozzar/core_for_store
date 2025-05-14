@@ -4,7 +4,6 @@ from src.product import Product
 
 def test_category(category_vegetables, category_fruits):
 
-
     assert category_vegetables.name == "Vegetables"
     assert category_vegetables.description == "Rich in vitamins and always fresh"
     assert len(category_vegetables.products) == 3

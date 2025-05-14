@@ -1,5 +1,3 @@
-from functools import reduce
-
 from src.product import Product
 
 
