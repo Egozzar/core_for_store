@@ -30,7 +30,7 @@ def test_products_get_property_empty(category_fruits_empty):
 
 
 def test_category_str(category_fruits):
-    assert str(category_fruits) == "Fruits, количество продуктов: 7 шт."
+    assert str(category_fruits) == "Fruits, количество продуктов: 22 шт."
 
 
 def test_zeroing():

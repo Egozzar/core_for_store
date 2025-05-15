@@ -1,3 +1,4 @@
+from functools import reduce
 from typing import Any
 
 from src.product import Product
@@ -28,7 +29,9 @@ class Category:
         """
         Метод для отображения информации об объекте класса для пользователей
         """
-        return f"{self.name}, количество продуктов: {Category.product_count} шт."
+        total_quant = reduce(lambda summ, elem: summ + elem.quantity, self.__products, 0)
+
+        return f"{self.name}, количество продуктов: {total_quant} шт."
 
     def add_product(self, product: Product) -> Any:
         """
