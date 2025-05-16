@@ -20,6 +20,18 @@ class Product:
 
         Product.products.append(self)
 
+    def __str__(self) -> str:
+        """
+        Метод для отображения информации об объекте класса для пользователей
+        """
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other: Any) -> Any:
+        """
+        Метод позволяет прибавлять к экземпляру класса объект произвольного типа данных
+        """
+        return self.price * self.quantity + other.price * other.quantity
+
     @property
     def price(self) -> float:
         """

@@ -1,5 +1,6 @@
 import pytest
 
+from src.cat_iterator import CatIterator
 from src.category import Category
 from src.product import Product
 
@@ -60,3 +61,18 @@ def list_dict_products():
         {"name": "Cabbage", "description": "Early white cabbage", "price": 125.0, "quantity": 50},
         {"name": "Pineapple", "description": "Wonderful fruit", "price": 400.0, "quantity": 20},
     ]
+
+
+@pytest.fixture
+def category_iterator():
+    return CatIterator(
+        Category(
+            "Vegetables",
+            "Rich in vitamins and always fresh",
+            [
+                Product("Tomato", "Fresh, red, sweet", 250.0, 10),
+                Product("Pepper", "Fresh, juicy, sweet", 200.0, 15),
+                Product("Cucumber", "Fresh, green, long", 160.5, 20),
+            ],
+        )
+    )

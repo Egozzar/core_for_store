@@ -1,3 +1,4 @@
+from functools import reduce
 from typing import Any
 
 from src.product import Product
@@ -24,6 +25,14 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(self.__products) if self.__products else 0
 
+    def __str__(self) -> str:
+        """
+        Метод для отображения информации об объекте класса для пользователей
+        """
+        total_quant = reduce(lambda summ, elem: summ + elem.quantity, self.__products, 0)
+
+        return f"{self.name}, количество продуктов: {total_quant} шт."
+
     def add_product(self, product: Product) -> Any:
         """
         Метод добавляет товар класса Product в приватный атрибут - список продуктов
@@ -38,6 +47,6 @@ class Category:
         в виде списка отформатированных строк
         """
         if self.__products:
-            return [f"{elem.name}, {elem.price} руб. Остаток: {elem.quantity} шт." for elem in self.__products]
+            return [str(elem) for elem in self.__products]
 
         return []
