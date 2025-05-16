@@ -28,9 +28,12 @@ class Product:
 
     def __add__(self, other: Any) -> Any:
         """
-        Метод позволяет прибавлять к экземпляру класса объект произвольного типа данных
+        Метод позволяет складывать только экземпляры одного класса
         """
-        return self.price * self.quantity + other.price * other.quantity
+        if type(self) == type(other):
+            return self.price * self.quantity + other.price * other.quantity
+
+        raise TypeError("Объекты разных классов. Сложение невозможно.")
 
     @property
     def price(self) -> float:
