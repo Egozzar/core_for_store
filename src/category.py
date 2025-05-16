@@ -35,10 +35,14 @@ class Category:
 
     def add_product(self, product: Product) -> Any:
         """
-        Метод добавляет товар класса Product в приватный атрибут - список продуктов
+        Метод добавляет только товары класса Product и его наследников
+        в приватный атрибут - список продуктов
         """
-        self.__products.append(product)
-        Category.product_count += 1
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError("Добавление объекта невозможно.")
 
     @property
     def products(self) -> list:

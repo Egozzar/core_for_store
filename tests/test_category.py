@@ -1,5 +1,18 @@
+import pytest
+
 from src.category import Category
 from src.product import Product
+
+
+def test_add_product_wrong(category_vegetables):
+    Category.category_count = 0
+    Category.product_count = 0
+
+    with pytest.raises(TypeError) as err:
+        category_vegetables.add_product(1)
+
+    assert str(err.value) == "Добавление объекта невозможно."
+    assert category_vegetables.product_count == 0
 
 
 def test_category(category_vegetables, category_fruits):
