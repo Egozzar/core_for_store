@@ -1,7 +1,10 @@
 from typing import Any
 
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
 
-class Product:
+
+class Product(PrintMixin, BaseProduct):
     """
     Класс для создания экземпляров товара
     """
@@ -17,6 +20,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
         Product.products.append(self)
 
