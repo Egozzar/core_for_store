@@ -46,5 +46,13 @@ def test_category_str(category_fruits):
     assert str(category_fruits) == "Fruits, количество продуктов: 22 шт."
 
 
+def test_category_middle_price(category_fruits):
+    assert category_fruits.middle_price() == 246.67
+
+
+def test_category_middle_price_empty(category_fruits_empty):
+    assert category_fruits_empty.middle_price() == 0
+
+
 def test_zeroing():
     Product.products.clear()
