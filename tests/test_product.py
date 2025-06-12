@@ -1,3 +1,5 @@
+import pytest
+
 from src.product import Product
 
 
@@ -55,3 +57,10 @@ def test_product_str(product_cucumber):
 
 def test_product_add(list_object_products):
     assert list_object_products[0] + list_object_products[1] == 6210.0
+
+
+def test_product_empty_quantity():
+    with pytest.raises(ValueError) as err:
+        _ = Product("Cucumber", "Fresh, green, long", 160.5)
+
+    assert str(err.value) == "Товар с нулевым количеством не может быть добавлен"

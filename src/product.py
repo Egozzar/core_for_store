@@ -12,10 +12,13 @@ class Product(PrintMixin, BaseProduct):
     # Список всех созданных товаров
     products: list = list()
 
-    def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
+    def __init__(self, name: str, description: str, price: float, quantity: int = 0) -> None:
         """
         Метод для инициализации экземпляра класса. Задаем значения атрибутам экземпляра.
         """
+        if not quantity:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
+
         self.name = name
         self.description = description
         self.__price = price
@@ -34,7 +37,7 @@ class Product(PrintMixin, BaseProduct):
         """
         Метод позволяет складывать только экземпляры одного класса
         """
-        if type(self) == type(other):
+        if type(self) is type(other):
             return self.price * self.quantity + other.price * other.quantity
 
         raise TypeError("Объекты разных классов. Сложение невозможно.")

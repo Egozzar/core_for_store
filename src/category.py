@@ -54,3 +54,17 @@ class Category:
             return [str(elem) for elem in self.__products]
 
         return []
+
+    def middle_price(self) -> float | int:
+        """
+        Метод возвращает среднее значение цены товаров категории
+        """
+        try:
+            if not self.products:
+                raise ValueError
+
+            average_price = sum([elem.price for elem in self.__products]) / len(self.__products)
+            return round(average_price, 2)
+
+        except ValueError:
+            return 0
